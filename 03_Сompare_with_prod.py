@@ -2,6 +2,9 @@ import re
 import os
 import shutil
 
+
+# This script normalizes the text of procedures and compares prod and repo versions
+
 def remove_comments(content: str) -> str:
     """
     Remove comments from the SQL content.
@@ -111,8 +114,8 @@ def compare_and_replace_files(new_files_dir, target_dir):
 
 if __name__ == '__main__':
     # Example usage
-    new_files_dir = r'C:\\Users\\\ADMIN\\MyProjects\\Snowflake_task\\save_from_snowflake'
-    target_dir = r'C:\\Users\\\ADMIN\\MyProjects\\Snowflake_task'
+    new_files_dir = r'C:\\Users\\ADMIN\\MyProjects\\Snowflake_task\\save_from_snowflake'
+    target_dir = r'C:\\Users\\ADMIN\\MyProjects\\Snowflake_task'
     
     # Compare and replace old files with new ones
     files_status = compare_and_replace_files(new_files_dir, target_dir)

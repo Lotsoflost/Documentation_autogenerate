@@ -5,15 +5,15 @@ import hashlib
 from pathlib import Path
 
 from sqlalchemy import create_engine, text
-
+#This script saves all routines from the chosen schema into the separate folder
 
 connection_string = (
     "snowflake://<USER>:<PASSWORD>@<ACCOUNT>/<DATABASE>/<SCHEMA>?warehouse=<WH>&role=<ROLE>"
 )
 
 TARGET_DIR = r"C:\Users\ADMIN\MyProjects\Snowflake_task\save_from_snowflake"
-DB_NAME = "BASE_SCHEMA"
-SCHEMA_NAME = "AIR_TEST"
+DB_NAME = "BASE_SCHEMA" # your Database name
+SCHEMA_NAME = "AIR_TEST" # your schema name
 
 
 def normalize_filename(s: str) -> str:
@@ -57,7 +57,7 @@ def fetch_procedure_definitions(engine, db: str, schema: str):
         FROM {db}.information_schema.procedures
         --WHERE procedure_schema = :schema
         ORDER BY procedure_name, argument_signature
-    """)
+    """) # use there the SQL script that extracts all routines from DB
     with engine.connect() as conn:
         return conn.execute(q, {"schema": schema.upper()}).fetchall()
 

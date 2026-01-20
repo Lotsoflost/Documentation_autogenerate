@@ -199,10 +199,10 @@ if __name__ == '__main__':
     AIR_TEST  SP_REFRESH_DIMS
     AIR_TEST  SP_REFRESH_FCT
     AIR_TEST  SP_UPLOAD_SRC
-    ADMIN     SP_ETL_LOG
+    ADMIN     SP_LOG_ETL
 
     """
-
+# prepare this list by selecting from DB like in the first script
     # Prepare the list of schema and file names
     procedures = prepare_procedure_names(raw_procedures)
 
